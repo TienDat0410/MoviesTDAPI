@@ -20,9 +20,9 @@ public class MovieTdapiApplication {
         SpringApplication.run(MovieTdapiApplication.class, args);
     }
 
-    public CorsConfig corsConfig(){
+/*    public CorsConfig corsConfig(){
         return new CorsConfig();
-    }
+    }*/
 
 /*    public WebMvcConfigurer corsConfigurer(){
         return new WebMvcConfigurer() {
