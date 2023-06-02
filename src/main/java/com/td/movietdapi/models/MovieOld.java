@@ -1,4 +1,4 @@
-package com.example.movietdapi;
+package com.td.movietdapi.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,7 +14,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Movie {
+public class MovieOld {
     @Id
     private ObjectId id;
     private String imdbId;

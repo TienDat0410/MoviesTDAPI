@@ -1,5 +1,7 @@
-package com.example.movietdapi;
+package com.td.movietdapi.controllers;
 
+import com.td.movietdapi.services.ReviewService;
+import com.td.movietdapi.models.Review;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

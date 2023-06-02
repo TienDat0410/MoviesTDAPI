@@ -1,4 +1,4 @@
-package com.example.movietdapi.enableCORS;
+package com.td.movietdapi.enableCORS;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

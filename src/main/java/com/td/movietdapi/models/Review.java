@@ -1,4 +1,4 @@
-package com.example.movietdapi;
+package com.td.movietdapi.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

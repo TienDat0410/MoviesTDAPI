@@ -1,5 +1,8 @@
-package com.example.movietdapi;
+package com.td.movietdapi.services;
 
+import com.td.movietdapi.models.MovieOld;
+import com.td.movietdapi.models.Review;
+import com.td.movietdapi.repositories.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -11,15 +14,15 @@ import java.time.LocalDateTime;
 @Service
 public class ReviewService {
     @Autowired
-    private ReviewReposotory reviewReposotory;
+    private ReviewRepository reviewRepository;
 
     @Autowired
     private MongoTemplate mongoTemplate;
     public Review createReview(String reviewBody, String imdbId)
     {
-        Review review =  reviewReposotory.insert(new Review(reviewBody, LocalDateTime.now(), LocalDateTime.now()));
+        Review review =  reviewRepository.insert(new Review(reviewBody, LocalDateTime.now(), LocalDateTime.now()));
 
-        mongoTemplate.update(Movie.class)
+        mongoTemplate.update(MovieOld.class)
                 .matching(Criteria.where("imdbId").is(imdbId))
                 .apply(new Update().push("reviewIds").value(review))
                 .first();
