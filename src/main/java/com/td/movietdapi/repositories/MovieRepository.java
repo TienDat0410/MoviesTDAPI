@@ -1,11 +1,17 @@
 package com.td.movietdapi.repositories;
 
 import com.td.movietdapi.models.Movie;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Repository
-public interface MovieRepository {
 
-    Movie getMovieById(int movieId);
+import java.util.List;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class MovieRepository{
+
+    private List<Movie> results;
 }
