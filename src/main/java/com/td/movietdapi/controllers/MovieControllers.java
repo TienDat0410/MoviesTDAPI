@@ -30,6 +30,26 @@ public class MovieControllers {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @GetMapping("/popular")
+    public ResponseEntity<List<Movie>> getPopularMovies(){
+        List<Movie> movies = movieService.getMoviePopular();
+        if (!movies.isEmpty()) {
+            return ResponseEntity.ok(movies);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping("/top_rated")
+    public ResponseEntity<List<Movie>> getTopRatedMovies(){
+        List<Movie> movies = movieService.getMovieTopRated();
+        if (!movies.isEmpty()) {
+            return ResponseEntity.ok(movies);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
     @GetMapping("/{movieId}")
     public ResponseEntity<MovieDetails> getMovieDetails(@PathVariable int movieId) {
         MovieDetails movie = movieService.getMovieDetails(movieId);

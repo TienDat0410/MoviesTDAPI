@@ -41,6 +41,34 @@ public class MovieService {
         }
     }
 
+    public List<Movie> getMoviePopular(){
+        String url = "/movie/popular" + "?api_key=" + tmdbApiKey;
+        movieRepository = webClient.get()
+                .uri(url)
+                .retrieve()
+                .bodyToMono(MovieRepository.class)
+                .block();
+        if (movieRepository != null) {
+            return movieRepository.getResults();
+        } else {
+            return Collections.emptyList();
+        }
+    }
+
+    public List<Movie> getMovieTopRated(){
+        String url = "/movie/top_rated" + "?api_key=" + tmdbApiKey;
+        movieRepository = webClient.get()
+                .uri(url)
+                .retrieve()
+                .bodyToMono(MovieRepository.class)
+                .block();
+        if (movieRepository != null) {
+            return movieRepository.getResults();
+        } else {
+            return Collections.emptyList();
+        }
+    }
+
     public MovieDetails getMovieDetails(int movieId){
             String url = "/movie/" + movieId + "?api_key=" + tmdbApiKey;
             return webClient.get()
